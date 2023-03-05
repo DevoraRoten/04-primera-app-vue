@@ -1,7 +1,7 @@
 <template>
 <div>
 <h3 >{{ customTitle}}</h3>
-<h3>{{counter}} <sup>2</sup>= {{ squareCounter }}</h3>
+<h3>{{ counter }} <sup>2</sup>= {{ squareCounter }}</h3>
 
 <div>
     <button @click="increment()"> +1</button>
@@ -17,12 +17,20 @@
 <script>
 export default {
     props: {
-        title: String
+        title: String,
+        start: {
+            type: Number,
+            default: 15,
+            //requerid: true
+            validator(value){
+                return value >=0
+
+            }
+        }
     },
     data() {
         return {
-            counter: 5
-
+            counter: this.start
         }
     },
     methods: {

@@ -1,7 +1,7 @@
 <template>
 <div>
   <img alt="Vue logo" src="./assets/logo.png">
-  <MiPrimerComponente title="Entraron"/>
+  <!--<MiPrimerComponente title="Entraron"/>-->
   <MiPrimerComponente />
 </div>
 
