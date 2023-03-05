@@ -1,12 +1,11 @@
 <template>
 <div>
-<h2>Desde el primer componente</h2>
-<h3> Counter</h3>
+<h3 >{{ customTitle}}</h3>
 <h3>{{counter}} <sup>2</sup>= {{ squareCounter }}</h3>
 
 <div>
-    <button v-on:click="increment()"> +1</button>
-    <button v-on:click="decrement()">-1</button>
+    <button @click="increment()"> +1</button>
+    <button @click="decrement()">-1</button>
 </div>
 
 
@@ -17,6 +16,9 @@
 
 <script>
 export default {
+    props: {
+        title: String
+    },
     data() {
         return {
             counter: 5
@@ -35,7 +37,10 @@ export default {
     computed: {
         squareCounter(){
             return this.counter*this.counter
-        } 
+        },
+        customTitle(){
+            return this.title || 'Counter'
+        }
     }
  
 }
@@ -43,12 +48,14 @@ export default {
 
 <style>
 button{
-    background-color:blueviolet;
-    padding: 5px;
+    background-color:rgb(5, 151, 66);
+    border-radius: 3px;
+    border: transparent;
     margin: 3px;
+    padding: 5px;
 }
 button:hover{
-    background-color: blue;
+    background-color: rgb(34, 226, 114);
     transition-duration: 3ms;
 }
 
