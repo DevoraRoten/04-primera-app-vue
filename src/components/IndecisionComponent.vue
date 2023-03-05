@@ -1,6 +1,7 @@
 <template>
 <div>
- <img alt="Vue logo" src="../assets/logo.png">
+ <img alt="Vue logo" v-show="!url" src="../assets/logo.png">
+ <img :src="url" v-show="url" alt="">
    <div class="bg-dark"></div>
 
    <div class="indecision-conainer">
@@ -9,8 +10,8 @@
    </div>
 
    <div>
-      <h2>{{question}}</h2>
-      <h1>resp</h1>
+      <h2 v-show="isValidQuestion">{{question}}</h2>
+      <h1 v-show="isValidQuestion">{{ answer}}</h1>
    </div>
 
 </div>
@@ -22,13 +23,30 @@
 export default {
    data(){
       return{
-         question: null
+         question: null,
+         answer: null,
+         url: null,
+         isValidQuestion: false
       }
       
    },
+   methods: {
+      async getAnswer(){
+         this.answer= 'Pensando...'
+         const {answer,image} = await fetch('https://yesno.wtf/api').then(r=>r.json())
+         console.log(answer)
+         this.answer=answer==="yes"? 'Sí!' : 'No' 
+         this.url=image
+
+         
+      }
+   },
    watch: {
       question(value){
+         this.isValidQuestion=false
          if(!value.includes('?')) return
+         this.isValidQuestion=true
+         this.getAnswer()
       }
 
    }
