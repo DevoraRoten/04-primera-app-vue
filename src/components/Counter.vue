@@ -1,6 +1,6 @@
 <template>
 <div>
-<h3 >{{ customTitle}}</h3>
+<h2 >{{ customTitle}}</h2>
 <h3>{{ counter }} <sup>2</sup>= {{ squareCounter }}</h3>
 
 <div class="buttonContainer">
