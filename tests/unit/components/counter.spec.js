@@ -1,10 +1,10 @@
 import { shallowMount } from "@vue/test-utils";
-import MiPrimerComponente  from "@/components/MiPrimerComponente";
+import Counter  from "@/components/Counter";
 
-describe(' MiPrimerComponente.vue', ()=>{
+describe(' Counter.vue', ()=>{
     test('debe de hacer match con el snapshot', ()=>{
         
-        const wrapper = shallowMount(MiPrimerComponente)
+        const wrapper = shallowMount(Counter)
         expect(wrapper.html()).toMatchSnapshot()
 
     })
