@@ -4,6 +4,7 @@ exports[` Counter.vue debe de hacer match con el snapshot 1`] = `
 <div>
   <h2>Counter</h2>
   <h3>15 <sup>2</sup>= 225</h3>
+  <h3 data-testid="counter">15</h3>
   <div class="buttonContainer"><button> +1</button><button>-1</button></div>
 </div>
 `;

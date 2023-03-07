@@ -2,6 +2,7 @@
 <div>
 <h2 >{{ customTitle}}</h2>
 <h3>{{ counter }} <sup>2</sup>= {{ squareCounter }}</h3>
+<h3 data-testid="counter">{{ counter }}</h3>
 
 <div class="buttonContainer">
     <button @click="increment()"> +1</button>
