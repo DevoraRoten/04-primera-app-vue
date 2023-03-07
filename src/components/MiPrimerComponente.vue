@@ -3,7 +3,7 @@
 <h3 >{{ customTitle}}</h3>
 <h3>{{ counter }} <sup>2</sup>= {{ squareCounter }}</h3>
 
-<div>
+<div class="buttonContainer">
     <button @click="increment()"> +1</button>
     <button @click="decrement()">-1</button>
 </div>
