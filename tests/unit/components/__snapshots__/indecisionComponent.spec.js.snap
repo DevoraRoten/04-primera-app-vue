@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`indecicion component Debe hacer match con el snapshop 1`] = `
+<div><img alt="Vue logo" src=""><img alt="" style="display: none;">
+  <div class="bg-dark"></div>
+  <div class="indecision-conainer"><input type="text" placeholder="Hazme una pregunta">
+    <p>Recuerda terminar con un signo de interrogacion (?)</p>
+  </div>
+  <div>
+    <h2 style="display: none;"></h2>
+    <h1 style="display: none;"></h1>
+  </div>
+</div>
+`;

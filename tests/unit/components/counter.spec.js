@@ -45,4 +45,13 @@ describe(' Counter.vue', ()=>{
         expect(h3TagD).toBe('14')
 
     })
+    test('props start debe ser igual que ariba en el html', ()=>{
+        const{start} =wrapper.props()
+        const h3TagD=wrapper.find('[data-testid="counter"]').text()
+        expect(Number(h3TagD)).toBe(start)
+    })
+    test('mostrar el titulo de la prop',()=>{
+        const wrapper = shallowMount(Counter, {props:{title:'Hola Mundo'}})
+        expect(wrapper.find('h2').text()).toBe('Hola Mundo')
+    })
 })
