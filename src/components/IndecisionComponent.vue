@@ -1,7 +1,7 @@
 <template>
 <div>
- <img alt="Vue logo" v-show="!url" src="../assets/logo.png">
- <img :src="url" v-show="url" alt="">
+ <img alt="Vue logo" v-show="!img" src="../assets/logo.png">
+ <img :src="img" v-show="img" alt="">
    <div class="bg-dark"></div>
 
    <div class="indecision-conainer">
@@ -20,23 +20,35 @@
 </template>
 
 <script>
+
+
+
 export default {
    data(){
       return{
          question: null,
          answer: null,
-         url: null,
+         img: null,
          isValidQuestion: false
       }
       
    },
    methods: {
+      
       async getAnswer(){
          this.answer= 'Pensando...'
-         const {answer,image} = await fetch('https://yesno.wtf/api').then(r=>r.json())
-         console.log(answer)
-         this.answer=answer==="yes"? 'Sí!' : 'No' 
-         this.url=image
+         await fetch('https://yesno.wtf/api')
+         .then( async()=>{
+            const {answer,image} = await fetch('https://yesno.wtf/api').then(r=>r.json())
+            this.answer=answer==="yes"? 'Sí!' : 'No' 
+         this.img=image
+         })
+         
+         .catch(e=>{console.log(e)
+         this.answer='No se puede cargar el API'
+         this.img = null})
+
+         
 
          
       }
@@ -44,6 +56,7 @@ export default {
    watch: {
       question(value){
          this.isValidQuestion=false
+         console.log({value})
          if(!value.includes('?')) return
          this.isValidQuestion=true
          this.getAnswer()
